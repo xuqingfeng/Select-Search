@@ -1,7 +1,7 @@
 ## Select Search
 > :mag: select text to search on various search engines.
 
-![https://chrome.google.com/webstore/detail/select-search/hlnpaciomjjnpmbjedfmlnkhogngmleh](https://img.shields.io/chrome-web-store/v/hlnpaciomjjnpmbjedfmlnkhogngmleh.svg)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/hlnpaciomjjnpmbjedfmlnkhogngmleh.svg?style=flat-square)](https://chrome.google.com/webstore/detail/select-search/hlnpaciomjjnpmbjedfmlnkhogngmleh)
 
 ### Usage
 
