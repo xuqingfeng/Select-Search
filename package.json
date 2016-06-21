@@ -1,0 +1,23 @@
+{
+  "name": "select-search",
+  "version": "2.0.0",
+  "description": "select text to search on various search engines.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuqingfeng/Select-Search.git"
+  },
+  "author": "xuqingfeng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xuqingfeng/Select-Search/issues"
+  },
+  "homepage": "https://github.com/xuqingfeng/Select-Search#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^2.13.6"
+  }
+}
