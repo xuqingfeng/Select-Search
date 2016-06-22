@@ -52,6 +52,11 @@ class Background {
     mouseUp() {
         let selectedText = this.getSelectedText();
         if (selectedText.length > 0 && selectedText.trim().length > 0) {
+            // highlight icon todo: verify
+            chrome.browserAction.setIcon({
+                path: '../icons/icon48.png'
+            }, function () {
+            });
             this.selectedText = selectedText.trim();
             this.selectStatus = true;
         } else {
