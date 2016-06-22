@@ -9,7 +9,7 @@
     },
     "background": {
         "scripts": [
-            "background_scripts/message.js"
+            "dist/bg.js"
         ]
     },
     "options_page": "pages/options.html",
@@ -26,7 +26,7 @@
                 "https://*/*"
             ],
             "js": [
-                "content_scripts/listen.js"
+                "dist/cs.js"
             ],
             "run_at": "document_start",
             "all_frames": true

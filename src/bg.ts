@@ -1,6 +1,6 @@
 /// <reference path="../typings/chrome/chrome.d.ts" />
 
-class Listen {
+class Background {
     constructor(public selectStatus:boolean = false, public selectedText:string = '', public searchKey:string = 'g', public translateKey:string = 'e', public jumpToLinkKey:string = 'b', public keyCode:any = {}) {
 
         // get searchKey form chrome storage
@@ -91,6 +91,6 @@ class Listen {
     }
 }
 
-let listen = new Listen();
-document.addEventListener('mouseup', listen.mouseUp);
-document.addEventListener('keydown', listen.keyDown);
+let bg = new Background();
+document.addEventListener('mouseup', bg.mouseUp);
+document.addEventListener('keydown', bg.keyDown);
