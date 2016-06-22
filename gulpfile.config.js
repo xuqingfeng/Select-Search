@@ -6,7 +6,7 @@ var GulpConfig = (function () {
         this.dist = './dist';
 
         this.allTypeScript = this.source + '/**/*.ts';
-        this.tsOutputPath = this.dist + '/js';
+        this.tsOutputPath = this.dist + '/';
     }
 
     return gulpConfig;

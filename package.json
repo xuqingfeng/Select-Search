@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/xuqingfeng/Select-Search#readme",
   "devDependencies": {
+    "del": "^2.2.1",
     "gulp": "^3.9.1",
     "gulp-typescript": "^2.13.6"
   }

@@ -1,0 +1,13 @@
+'use strict';
+
+var gulp = require('gulp'),
+    del = require('del');
+
+gulp.task('clean:tmp', function(){
+   return del([
+       'tmp/**/*',
+       '!tmp/keep'
+   ]);
+});
+
+gulp.task('default', ['clean:tmp']);

@@ -1,8 +1,12 @@
 /// <reference path="../typings/chrome/chrome.d.ts" />
-
 class Listen {
-    constructor(public selectStatus:boolean = false, public selectedText:string = '', public searchKey:string = 'g', public translateKey:string = 'e', public jumpToLinkKey:string = 'b', public keyCode:any = {}) {
-
+    constructor(selectStatus = false, selectedText = '', searchKey = 'g', translateKey = 'e', jumpToLinkKey = 'b', keyCode = {}) {
+        this.selectStatus = selectStatus;
+        this.selectedText = selectedText;
+        this.searchKey = searchKey;
+        this.translateKey = translateKey;
+        this.jumpToLinkKey = jumpToLinkKey;
+        this.keyCode = keyCode;
         // get searchKey form chrome storage
         chrome.storage.sync.get('searchKey', function (items) {
             this.searchKey = items['searchKey'] || 'g';
@@ -13,7 +17,6 @@ class Listen {
         chrome.storage.sync.get('jumpToLinkKey', function (items) {
             this.jumpToLinkKey = items['jumpToLinkKey'] || 'b';
         });
-
         this.keyCode = {
             'a': 65,
             'b': 66,
@@ -43,24 +46,21 @@ class Listen {
             'z': 90
         };
     }
-
-    getSelectedText():string {
+    getSelectedText() {
         let selection = window.getSelection();
         return selection.toString();
     }
-
     mouseUp() {
         let selectedText = this.getSelectedText();
         if (selectedText.length > 0 && selectedText.trim().length > 0) {
             this.selectedText = selectedText.trim();
             this.selectStatus = true;
-        } else {
+        }
+        else {
             this.selectStatus = false;
         }
     }
-
-    keyDown(e:KeyboardEvent) {
-
+    keyDown(e) {
         if (this.selectStatus) {
             if (e.metaKey) {
                 switch (e.keyCode) {
@@ -90,7 +90,6 @@ class Listen {
         }
     }
 }
-
 let listen = new Listen();
 document.addEventListener('mouseup', listen.mouseUp);
 document.addEventListener('keydown', listen.keyDown);
