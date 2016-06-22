@@ -13,8 +13,9 @@ class Options {
 
     chromeGet = (key:string) => {
 
+        let self = this;
         chrome.storage.sync.get(key, function (items) {
-            this.key = items[key];
+            let keyValue = items[key];
             switch (key) {
                 case 'searchKey':
                 case 'translateKey':
@@ -22,12 +23,16 @@ class Options {
                 case 'translateFrom':
                 case 'translateTo':
 
-                    this.optionSelect(key);
+                    self.optionSelect(key);
                     break;
                 case 'searchEngine':
                 case 'translateSite':
-                    this.checkboxCheck(key);
+                    // todo: fix
+                    console.info('keyValue:', keyValue);
+                    self.checkboxCheck(keyValue);
                     break;
+                default:
+                    //
             }
         });
     }
@@ -47,3 +52,6 @@ class Options {
         document.getElementById(key).setAttribute('checked', 'checked');
     }
 }
+
+let options = new Options();
+console.info('options');
