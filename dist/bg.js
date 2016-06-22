@@ -5,6 +5,32 @@ class Background {
         this.translateSite = translateSite;
         this.translateFrom = translateFrom;
         this.translateTo = translateTo;
+        this.search = (selectedText, searchEngine) => {
+            let searchUrl = '';
+            switch (searchEngine) {
+                case 'google':
+                    searchUrl += Background.GOOGLE + encodeURIComponent(selectedText);
+                    break;
+                case 'yahoo':
+                    searchUrl += Background.YAHOO + encodeURIComponent(selectedText);
+                    break;
+                case 'bing':
+                    searchUrl += Background.BING + encodeURIComponent(selectedText);
+                    break;
+                case 'duckduckgo':
+                    searchUrl += Background.DUCKDUCKGO + encodeURIComponent(selectedText);
+                    break;
+                case 'baidu':
+                    searchUrl += Background.BAIDU + encodeURIComponent(selectedText);
+                    break;
+                case 'yandex':
+                    searchUrl += Background.YANDEX + encodeURIComponent(selectedText);
+                    break;
+                default:
+            }
+            this.createTab(searchUrl);
+        };
+        console.info('constructor');
         let self = this;
         chrome.storage.sync.get('translateSite', function (items) {
             this.translateSite = items['translateSite'] || 'cn';
@@ -16,6 +42,12 @@ class Background {
             this.translateTo = items['translateTo'] || 'zh-CN';
         });
         chrome.runtime.onMessage.addListener(function (request) {
+            console.info('listen');
+            // highlight icon todo: verify
+            chrome.browserAction.setIcon({
+                path: '../icons/icon48.png'
+            }, function () {
+            });
             let selectedText = request.selectedText;
             switch (request.type) {
                 case 'search':
@@ -51,31 +83,6 @@ class Background {
                 default:
             }
         });
-    }
-    search(selectedText, searchEngine) {
-        let searchUrl = '';
-        switch (searchEngine) {
-            case 'google':
-                searchUrl += Background.GOOGLE + encodeURIComponent(selectedText);
-                break;
-            case 'yahoo':
-                searchUrl += Background.YAHOO + encodeURIComponent(selectedText);
-                break;
-            case 'bing':
-                searchUrl += Background.BING + encodeURIComponent(selectedText);
-                break;
-            case 'duckduckgo':
-                searchUrl += Background.DUCKDUCKGO + encodeURIComponent(selectedText);
-                break;
-            case 'baidu':
-                searchUrl += Background.BAIDU + encodeURIComponent(selectedText);
-                break;
-            case 'yandex':
-                searchUrl += Background.YANDEX + encodeURIComponent(selectedText);
-                break;
-            default:
-        }
-        this.createTab(searchUrl);
     }
     createTab(url) {
         chrome.tabs.create({

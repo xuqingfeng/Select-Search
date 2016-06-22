@@ -1,4 +1,5 @@
 /// <reference path="../typings/chrome/chrome.d.ts" />
+// todo: fix
 class Options {
     constructor(searchKey = 'g', translateKey = 'e', jumpToLinkKey = 'b', searchEngine = 'google', translateSite = 'cn', translateFrom = 'en', translateTo = 'zh-CN') {
         this.searchKey = searchKey;
@@ -8,27 +9,27 @@ class Options {
         this.translateSite = translateSite;
         this.translateFrom = translateFrom;
         this.translateTo = translateTo;
+        this.chromeGet = (key) => {
+            chrome.storage.sync.get(key, function (items) {
+                this.key = items[key];
+                switch (key) {
+                    case 'searchKey':
+                    case 'translateKey':
+                    case 'jumpToLinkKey':
+                    case 'translateFrom':
+                    case 'translateTo':
+                        this.optionSelect(key);
+                        break;
+                    case 'searchEngine':
+                    case 'translateSite':
+                        this.checkboxCheck(key);
+                        break;
+                }
+            });
+        };
         for (let key of Options.keyMap) {
             this.chromeGet(key);
         }
-    }
-    chromeGet(key) {
-        chrome.storage.sync.get(key, function (items) {
-            this.key = items[key];
-            switch (key) {
-                case 'searchKey':
-                case 'translateKey':
-                case 'jumpToLinkKey':
-                case 'translateFrom':
-                case 'translateTo':
-                    this.optionSelect(key);
-                    break;
-                case 'searchEngine':
-                case 'translateSite':
-                    this.checkboxCheck(key);
-                    break;
-            }
-        });
     }
     optionSelect(key) {
         let options = document.getElementById(key).options;

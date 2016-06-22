@@ -14,6 +14,7 @@ class Background {
 
     constructor(public searchEngine:string = 'google', public translateSite:string = 'cn', public translateFrom:string = 'en', public translateTo:string = 'zh-CN') {
 
+        console.info('constructor');
         let self = this;
         chrome.storage.sync.get('translateSite', function (items) {
             this.translateSite = items['translateSite'] || 'cn';
@@ -26,6 +27,13 @@ class Background {
         });
 
         chrome.runtime.onMessage.addListener(function (request) {
+
+            console.info('listen');
+            // highlight icon todo: verify
+            chrome.browserAction.setIcon({
+                path: '../icons/icon48.png'
+            }, function () {
+            });
 
             let selectedText = request.selectedText;
             switch (request.type) {
@@ -67,11 +75,12 @@ class Background {
                     }
                     break;
                 default:
+                    //
             }
         });
     }
 
-    search(selectedText:string, searchEngine:string) {
+    search = (selectedText:string, searchEngine:string) => {
 
         let searchUrl = '';
         switch (searchEngine) {
@@ -103,7 +112,7 @@ class Background {
         }
 
         this.createTab(searchUrl);
-    }
+    };
 
     createTab(url:string) {
 

@@ -1,5 +1,5 @@
 /// <reference path="../typings/chrome/chrome.d.ts" />
-
+// todo: fix
 class Options {
 
     static keyMap = ['searchKey', 'translateKey', 'jumpToLinkLink', 'translateFrom', 'translateTo', 'searchEngine', 'translateSite'];
@@ -11,7 +11,7 @@ class Options {
         }
     }
 
-    chromeGet(key:string) {
+    chromeGet = (key:string) => {
 
         chrome.storage.sync.get(key, function (items) {
             this.key = items[key];
