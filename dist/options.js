@@ -1,18 +1,18 @@
 /// <reference path="../typings/chrome/chrome.d.ts" />
-
 class Options {
-
-    static keyMap = ['searchKey', 'translateKey', 'jumpToLinkLink', 'translateFrom', 'translateTo', 'searchEngine', 'translateSite'];
-
-    constructor(public searchKey = 'g', public translateKey = 'e', public jumpToLinkKey = 'b', public searchEngine = 'google', public translateSite = 'cn', public translateFrom = 'en', public translateTo = 'zh-CN') {
-
+    constructor(searchKey = 'g', translateKey = 'e', jumpToLinkKey = 'b', searchEngine = 'google', translateSite = 'cn', translateFrom = 'en', translateTo = 'zh-CN') {
+        this.searchKey = searchKey;
+        this.translateKey = translateKey;
+        this.jumpToLinkKey = jumpToLinkKey;
+        this.searchEngine = searchEngine;
+        this.translateSite = translateSite;
+        this.translateFrom = translateFrom;
+        this.translateTo = translateTo;
         for (let key of Options.keyMap) {
             this.chromeGet(key);
         }
     }
-
-    chromeGet(key:string) {
-
+    chromeGet(key) {
         chrome.storage.sync.get(key, function (items) {
             this.key = items[key];
             switch (key) {
@@ -21,7 +21,6 @@ class Options {
                 case 'jumpToLinkKey':
                 case 'translateFrom':
                 case 'translateTo':
-
                     this.optionSelect(key);
                     break;
                 case 'searchEngine':
@@ -31,9 +30,7 @@ class Options {
             }
         });
     }
-
-    optionSelect(key:string) {
-
+    optionSelect(key) {
         let options = document.getElementById(key).options;
         for (let i = 0; i < options.length; i++) {
             if (key == options[i].value) {
@@ -41,9 +38,8 @@ class Options {
             }
         }
     }
-
-    checkboxCheck(key:string) {
-
+    checkboxCheck(key) {
         document.getElementById(key).setAttribute('checked', 'checked');
     }
 }
+Options.keyMap = ['searchKey', 'translateKey', 'jumpToLinkLink', 'translateFrom', 'translateTo', 'searchEngine', 'translateSite'];

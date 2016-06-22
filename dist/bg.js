@@ -1,9 +1,12 @@
 /// <reference path="../typings/chrome/chrome.d.ts" />
-
 class Background {
-
-    constructor(public selectStatus:boolean = false, public selectedText:string = '', public searchKey:string = 'g', public translateKey:string = 'e', public jumpToLinkKey:string = 'b', public keyCode:any = {}) {
-
+    constructor(selectStatus = false, selectedText = '', searchKey = 'g', translateKey = 'e', jumpToLinkKey = 'b', keyCode = {}) {
+        this.selectStatus = selectStatus;
+        this.selectedText = selectedText;
+        this.searchKey = searchKey;
+        this.translateKey = translateKey;
+        this.jumpToLinkKey = jumpToLinkKey;
+        this.keyCode = keyCode;
         // get searchKey form chrome storage
         chrome.storage.sync.get('searchKey', function (items) {
             this.searchKey = items['searchKey'] || 'g';
@@ -14,7 +17,6 @@ class Background {
         chrome.storage.sync.get('jumpToLinkKey', function (items) {
             this.jumpToLinkKey = items['jumpToLinkKey'] || 'b';
         });
-
         this.keyCode = {
             'a': 65,
             'b': 66,
@@ -44,15 +46,11 @@ class Background {
             'z': 90
         };
     }
-
-    getSelectedText():string {
-
+    getSelectedText() {
         let selection = window.getSelection();
         return selection.toString();
     }
-
     mouseUp() {
-
         let selectedText = this.getSelectedText();
         if (selectedText.length > 0 && selectedText.trim().length > 0) {
             // highlight icon todo: verify
@@ -62,13 +60,12 @@ class Background {
             });
             this.selectedText = selectedText.trim();
             this.selectStatus = true;
-        } else {
+        }
+        else {
             this.selectStatus = false;
         }
     }
-
-    keyDown(e:KeyboardEvent) {
-
+    keyDown(e) {
         if (this.selectStatus) {
             if (e.metaKey) {
                 switch (e.keyCode) {
@@ -98,7 +95,6 @@ class Background {
         }
     }
 }
-
 let bg = new Background();
 document.addEventListener('mouseup', bg.mouseUp);
 document.addEventListener('keydown', bg.keyDown);
