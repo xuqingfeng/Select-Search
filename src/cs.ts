@@ -2,116 +2,103 @@
 
 class Content {
 
-    static GOOGLE:string = 'https://www.google.com/search?q=';
-    static YAHOO:string = 'https://search.yahoo.com/search?p=';
-    static BING:string = 'https://www.bing.com/search?q=';
-    static DUCKDUCKGO:string = 'https://www.duckduckgo.com/?q=';
-    static BAIDU:string = 'https://www.baidu.com/s?wd=';
-    static YANDEX:string = 'https://yandex.ru/yandsearch?text=';
+    constructor(public selectStatus:boolean = false, public selectedText:string = '', public searchKey:string = 'g', public translateKey:string = 'e', public jumpToLinkKey:string = 'b', public keyCode:any = {}) {
 
-    static GOOGLE_TRANSLATE_CN_URL:string = 'https://translate.google.cn';
-    static GOOGLE_TRANSLATE_COM_URL:string = 'https://translate.google.com';
-
-    constructor(public searchEngine:string = 'google', public translateSite:string = 'cn', public translateFrom:string = 'en', public translateTo:string = 'zh-CN') {
-
-        chrome.storage.sync.get('translateSite', function (items) {
-            this.translateSite = items['translateSite'] || 'cn';
+        chrome.storage.sync.get('searchKey', function (items) {
+            this.searchKey = items['searchKey'] || 'g';
         });
-        chrome.storage.sync.get('translateFrom', function (items) {
-            this.translateFrom = items['translateFrom'] || 'en';
+        chrome.storage.sync.get('translateKey', function (items) {
+            this.translateKey = items['translateKey'] || 'e';
         });
-        chrome.storage.sync.get('translateTo', function (items) {
-            this.translateTo = items['translateTo'] || 'zh-CN';
+        chrome.storage.sync.get('jumpToLinkKey', function (items) {
+            this.jumpToLinkKey = items['jumpToLinkKey'] || 'b';
         });
 
-        chrome.runtime.onMessage.addListener(function (request) {
-
-            let selectedText = request.selectedText;
-            switch (request.type) {
-                case 'search':
-
-                    chrome.storage.sync.get('searchEngine', function (items) {
-                        this.searchEngine = items['searchEngine'] || 'google';
-                        this.search(selectedText, this.searchEngine);
-                    });
-                    break;
-                case 'translate':
-
-                    let word = encodeURIComponent(selectedText.trim());
-                    let googleTranslateUrl:string;
-                    switch (this.translateSite) {
-                        case 'cn':
-
-                            googleTranslateUrl = Content.GOOGLE_TRANSLATE_CN_URL;
-                            break;
-                        case 'com':
-
-                            googleTranslateUrl = Content.GOOGLE_TRANSLATE_COM_URL;
-                            break;
-                        default:
-
-                            googleTranslateUrl = Content.GOOGLE_TRANSLATE_CN_URL;
-                    }
-
-                    this.createTab(googleTranslateUrl + '/#' + this.translateFrom + '/' + this.translateTo + '/' + word);
-                    break;
-                case 'link':
-
-                    let httpProtocol = selectedText.substr(0, 7),
-                        httpsProtocol = selectedText.substr(0, 8);
-                    if ('http://' == httpProtocol || 'https://' == httpsProtocol) {
-                        this.createTab(selectedText);
-                    } else {
-                        this.createTab('http://' + selectedText);
-                    }
-                    break;
-                default:
-            }
-        });
+        this.keyCode = {
+            'a': 65,
+            'b': 66,
+            'c': 67,
+            'd': 68,
+            'e': 69,
+            'f': 70,
+            'g': 71,
+            'h': 71,
+            'i': 73,
+            'j': 74,
+            'k': 75,
+            'l': 76,
+            'm': 77,
+            'n': 78,
+            'o': 79,
+            'p': 80,
+            'q': 81,
+            'r': 82,
+            's': 83,
+            't': 84,
+            'u': 85,
+            'v': 86,
+            'w': 87,
+            'x': 88,
+            'y': 89,
+            'z': 90
+        };
     }
 
-    search(selectedText:string, searchEngine:string) {
+    getSelectedText():string {
 
-        let searchUrl = '';
-        switch (searchEngine) {
-            case 'google':
+        let selection = window.getSelection();
+        return selection.toString();
+    }
 
-                searchUrl += Content.GOOGLE + encodeURIComponent(selectedText);
-                break;
-            case 'yahoo':
+    mouseUp() {
 
-                searchUrl += Content.YAHOO + encodeURIComponent(selectedText);
-                break;
-            case 'bing':
-
-                searchUrl += Content.BING + encodeURIComponent(selectedText);
-                break;
-            case 'duckduckgo':
-
-                searchUrl += Content.DUCKDUCKGO + encodeURIComponent(selectedText);
-                break;
-            case 'baidu':
-
-                searchUrl += Content.BAIDU + encodeURIComponent(selectedText);
-                break;
-            case 'yandex':
-
-                searchUrl += Content.YANDEX + encodeURIComponent(selectedText);
-                break;
-            default:
+        let selectedText = this.getSelectedText();
+        if (selectedText.length > 0 && selectedText.trim().length > 0) {
+            // highlight icon todo: verify
+            chrome.browserAction.setIcon({
+                path: '../icons/icon48.png'
+            }, function () {
+            });
+            this.selectedText = selectedText.trim();
+            this.selectStatus = true;
+        } else {
+            this.selectStatus = false;
         }
-
-        this.createTab(searchUrl);
     }
 
-    createTab(url:string) {
+    keyDown(e:KeyboardEvent) {
 
-        chrome.tabs.create({
-            url: url,
-            active: true
-        }, function (tab) {
-        });
+        if (this.selectStatus) {
+            if (e.metaKey) {
+                switch (e.keyCode) {
+                    case this.keyCode[this.searchKey]:
+                        e.preventDefault();
+                        chrome.runtime.sendMessage({
+                            selectedText: this.selectedText,
+                            type: 'search'
+                        });
+                        break;
+                    case this.keyCode[this.translateKey]:
+                        e.preventDefault();
+                        chrome.runtime.sendMessage({
+                            selectedText: this.selectedText,
+                            type: 'translate'
+                        });
+                        break;
+                    case this.keyCode[this.jumpToLinkKey]:
+                        e.preventDefault();
+                        chrome.runtime.sendMessage({
+                            selectedText: this.selectedText,
+                            type: 'link'
+                        });
+                        break;
+                }
+            }
+        }
     }
 }
 
 let cs = new Content();
+document.addEventListener('mouseup', cs.mouseUp);
+document.addEventListener('keydown', cs.keyDown);
+console.info('cs');
