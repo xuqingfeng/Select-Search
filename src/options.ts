@@ -2,7 +2,7 @@
 // todo: fix
 class Options {
 
-    static keyMap = ['searchKey', 'translateKey', 'jumpToLinkLink', 'translateFrom', 'translateTo', 'searchEngine', 'translateSite'];
+    static keyMap = ['searchKey', 'translateKey', 'jumpToLinkKey', 'translateFrom', 'translateTo', 'searchEngine', 'translateSite'];
 
     constructor(public searchKey = 'g', public translateKey = 'e', public jumpToLinkKey = 'b', public searchEngine = 'google', public translateSite = 'cn', public translateFrom = 'en', public translateTo = 'zh-CN') {
 

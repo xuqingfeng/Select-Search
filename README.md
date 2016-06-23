@@ -1,20 +1,35 @@
 ## Select Search
-> :mag: select text to search on various search engines.
+> :mag: 选中 => 搜索
 
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/hlnpaciomjjnpmbjedfmlnkhogngmleh.svg?style=flat-square)](https://chrome.google.com/webstore/detail/select-search/hlnpaciomjjnpmbjedfmlnkhogngmleh)
 
+### 用法
+
+```
+In macOS / Linux / Windows:
+
+⌘/win + G - 搜索选中文字 ( Google, Yahoo, Bing, Baidu ... )
+
+⌘/win + E - 翻译选中文字
+
+⌘/win + B - 跳转选中网址
+```
+
 ### Usage
-
 ```
-In OS X:
+In macOS / Linux / Windows:
 
-⌘ + G - search selected text with different search engine( Google, Yahoo, Bing, Baidu ...).
+⌘/win + G - search selected text with different search engine( Google, Yahoo, Bing, Baidu ...).
 
-⌘ + E - translate selected text.
+⌘/win + E - translate selected text.
 
-⌘ + B - jump to selected link.
+⌘/win + B - jump to selected link.
 ```
 
-**Note:**
+**注意**
 
-Shortcuts are customizable in Options page.
+快捷键可在 `选项` 中自定义
+
+**Note**
+
+Shortcuts are customizable in `Options` page.

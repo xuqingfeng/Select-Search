@@ -62,7 +62,7 @@ class Options {
         document.getElementById(value).checked = true;
     }
 }
-Options.keyMap = ['searchKey', 'translateKey', 'jumpToLinkLink', 'translateFrom', 'translateTo', 'searchEngine', 'translateSite'];
+Options.keyMap = ['searchKey', 'translateKey', 'jumpToLinkKey', 'translateFrom', 'translateTo', 'searchEngine', 'translateSite'];
 let options = new Options();
 console.info('options');
 let saveButton = document.getElementById('save');

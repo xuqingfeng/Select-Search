@@ -16,9 +16,6 @@ class Background {
 
         console.info('constructor');
         let self = this;
-        chrome.storage.sync.get('translateSite', function (items) {
-            this.translateSite = items['translateSite'] || 'cn';
-        });
         chrome.storage.sync.get('translateFrom', function (items) {
             this.translateFrom = items['translateFrom'] || 'en';
         });
@@ -27,13 +24,6 @@ class Background {
         });
 
         chrome.runtime.onMessage.addListener(function (request) {
-
-            console.info('listen');
-            // highlight icon todo: verify
-            chrome.browserAction.setIcon({
-                path: '../icons/icon48.png'
-            }, function () {
-            });
 
             let selectedText = request.selectedText;
             switch (request.type) {
@@ -46,36 +36,42 @@ class Background {
                     break;
                 case 'translate':
 
-                    let word = encodeURIComponent(selectedText.trim());
-                    let googleTranslateUrl:string;
-                    switch (this.translateSite) {
-                        case 'cn':
+                    chrome.storage.sync.get(['translateSite', 'translateFrom', 'translateTo'], function (items) {
 
-                            googleTranslateUrl = Background.GOOGLE_TRANSLATE_CN_URL;
-                            break;
-                        case 'com':
+                        self.translateSite = items['translateSite'] || 'cn';
+                        self.translateFrom = items['translateFrom'] || 'en';
+                        self.translateTo = items['translateTo'] || 'zh-CN';
+                        let word = encodeURIComponent(selectedText.trim());
+                        let googleTranslateUrl:string;
+                        switch (self.translateSite) {
+                            case 'cn':
 
-                            googleTranslateUrl = Background.GOOGLE_TRANSLATE_COM_URL;
-                            break;
-                        default:
+                                googleTranslateUrl = Background.GOOGLE_TRANSLATE_CN_URL;
+                                break;
+                            case 'com':
 
-                            googleTranslateUrl = Background.GOOGLE_TRANSLATE_CN_URL;
-                    }
+                                googleTranslateUrl = Background.GOOGLE_TRANSLATE_COM_URL;
+                                break;
+                            default:
 
-                    this.createTab(googleTranslateUrl + '/#' + this.translateFrom + '/' + this.translateTo + '/' + word);
+                                googleTranslateUrl = Background.GOOGLE_TRANSLATE_CN_URL;
+                        }
+
+                        self.createTab(googleTranslateUrl + '/#' + self.translateFrom + '/' + self.translateTo + '/' + word);
+                    });
                     break;
                 case 'link':
 
                     let httpProtocol = selectedText.substr(0, 7),
                         httpsProtocol = selectedText.substr(0, 8);
                     if ('http://' == httpProtocol || 'https://' == httpsProtocol) {
-                        this.createTab(selectedText);
+                        self.createTab(selectedText);
                     } else {
-                        this.createTab('http://' + selectedText);
+                        self.createTab('http://' + selectedText);
                     }
                     break;
                 default:
-                    //
+                //
             }
         });
     }
