@@ -16,6 +16,7 @@ class Options {
         let self = this;
         chrome.storage.sync.get(key, function (items) {
             let keyValue = items[key];
+            console.info('keyValue:', keyValue);
             switch (key) {
                 case 'searchKey':
                 case 'translateKey':
@@ -27,15 +28,13 @@ class Options {
                     break;
                 case 'searchEngine':
                 case 'translateSite':
-                    // todo: fix
-                    console.info('keyValue:', keyValue);
                     self.checkboxCheck(keyValue);
                     break;
                 default:
                     //
             }
         });
-    }
+    };
 
     optionSelect(key:string) {
 
