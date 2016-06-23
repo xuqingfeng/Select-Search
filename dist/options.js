@@ -1,5 +1,4 @@
 /// <reference path="../typings/chrome/chrome.d.ts" />
-// todo: fix
 class Options {
     constructor(searchKey = 'g', translateKey = 'e', jumpToLinkKey = 'b', searchEngine = 'google', translateSite = 'cn', translateFrom = 'en', translateTo = 'zh-CN') {
         this.searchKey = searchKey;
@@ -64,7 +63,6 @@ class Options {
 }
 Options.keyMap = ['searchKey', 'translateKey', 'jumpToLinkKey', 'translateFrom', 'translateTo', 'searchEngine', 'translateSite'];
 let options = new Options();
-console.info('options');
 let saveButton = document.getElementById('save');
 saveButton.addEventListener('click', function () {
     let searchKey = document.getElementById('searchKey').value;

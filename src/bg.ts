@@ -14,7 +14,6 @@ class Background {
 
     constructor(public searchEngine:string = 'google', public translateSite:string = 'cn', public translateFrom:string = 'en', public translateTo:string = 'zh-CN') {
 
-        console.info('constructor');
         let self = this;
         chrome.storage.sync.get('translateFrom', function (items) {
             this.translateFrom = items['translateFrom'] || 'en';
@@ -121,4 +120,3 @@ class Background {
 }
 
 let bg = new Background();
-console.info('bg');

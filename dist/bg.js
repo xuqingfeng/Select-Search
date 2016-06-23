@@ -30,7 +30,6 @@ class Background {
             }
             this.createTab(searchUrl);
         };
-        console.info('constructor');
         let self = this;
         chrome.storage.sync.get('translateFrom', function (items) {
             this.translateFrom = items['translateFrom'] || 'en';
@@ -97,4 +96,3 @@ Background.YANDEX = 'https://yandex.ru/yandsearch?text=';
 Background.GOOGLE_TRANSLATE_CN_URL = 'https://translate.google.cn';
 Background.GOOGLE_TRANSLATE_COM_URL = 'https://translate.google.com';
 let bg = new Background();
-console.info('bg');

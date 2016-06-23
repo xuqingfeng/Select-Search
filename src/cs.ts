@@ -68,7 +68,6 @@ class Content {
                             selectedText: this.selectedText,
                             type: 'search'
                         });
-                        console.info('search');
                         break;
                     case Content.keyMap[this.translateKey]:
                         e.preventDefault();
@@ -76,7 +75,6 @@ class Content {
                             selectedText: this.selectedText,
                             type: 'translate'
                         });
-                        console.info('translate');
                         break;
                     case Content.keyMap[this.jumpToLinkKey]:
                         e.preventDefault();
@@ -84,7 +82,6 @@ class Content {
                             selectedText: this.selectedText,
                             type: 'link'
                         });
-                        console.info('link');
                         break;
                     default:
                         //

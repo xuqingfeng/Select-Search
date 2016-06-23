@@ -1,5 +1,5 @@
 /// <reference path="../typings/chrome/chrome.d.ts" />
-// todo: fix
+
 class Options {
 
     static keyMap = ['searchKey', 'translateKey', 'jumpToLinkKey', 'translateFrom', 'translateTo', 'searchEngine', 'translateSite'];
@@ -76,7 +76,6 @@ class Options {
 }
 
 let options = new Options();
-console.info('options');
 
 let saveButton = document.getElementById('save');
 saveButton.addEventListener('click', function () {
