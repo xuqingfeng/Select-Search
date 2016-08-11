@@ -6,6 +6,7 @@ class Background {
     static YAHOO:string = 'https://search.yahoo.com/search?p=';
     static BING:string = 'https://www.bing.com/search?q=';
     static DUCKDUCKGO:string = 'https://www.duckduckgo.com/?q=';
+    static SOGOU:string = 'https://www.sogou.com/web?query=';
     static BAIDU:string = 'https://www.baidu.com/s?wd=';
     static YANDEX:string = 'https://yandex.ru/yandsearch?text=';
 
@@ -94,6 +95,10 @@ class Background {
             case 'duckduckgo':
 
                 searchUrl += Background.DUCKDUCKGO + encodeURIComponent(selectedText);
+                break;
+            case 'sogou':
+
+                searchUrl += Background.SOGOU + encodeURIComponent(selectedText);
                 break;
             case 'baidu':
 

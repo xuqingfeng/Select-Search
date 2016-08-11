@@ -20,6 +20,9 @@ class Background {
                 case 'duckduckgo':
                     searchUrl += Background.DUCKDUCKGO + encodeURIComponent(selectedText);
                     break;
+                case 'sogou':
+                    searchUrl += Background.SOGOU + encodeURIComponent(selectedText);
+                    break;
                 case 'baidu':
                     searchUrl += Background.BAIDU + encodeURIComponent(selectedText);
                     break;
@@ -91,6 +94,7 @@ Background.GOOGLE = 'https://www.google.com/search?q=';
 Background.YAHOO = 'https://search.yahoo.com/search?p=';
 Background.BING = 'https://www.bing.com/search?q=';
 Background.DUCKDUCKGO = 'https://www.duckduckgo.com/?q=';
+Background.SOGOU = 'https://www.sogou.com/web?query=';
 Background.BAIDU = 'https://www.baidu.com/s?wd=';
 Background.YANDEX = 'https://yandex.ru/yandsearch?text=';
 Background.GOOGLE_TRANSLATE_CN_URL = 'https://translate.google.cn';

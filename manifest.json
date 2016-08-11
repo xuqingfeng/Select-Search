@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "name": "Select Search",
-    "version": "2.0.1",
-    "description": "选中 => 搜索",
+    "version": "2.1.0",
+    "description": "选中 -> 搜索",
     "icons": {
         "48": "icons/icon48.png",
         "128": "icons/icon128.png"

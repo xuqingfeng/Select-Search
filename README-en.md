@@ -8,15 +8,11 @@
 ### Usage
 
 ```
-In macOS / Linux:
+OS X / Linux:
 
-⌘/win + G - search selected text with different search engine( Google, Yahoo, Bing, Baidu ... )
+⌘/win + G - search selected text with different search engine( Google, Yahoo, Bing, Sogou ... )
 
 ⌘/win + E - translate selected text
 
 ⌘/win + B - jump to selected link
-
-**Note**
-
-Shortcuts are customizable in `Options` page
 ```
