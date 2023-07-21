@@ -2,7 +2,7 @@ class Options {
 
     static keyMap = ['searchKey', 'translateKey', 'jumpToLinkKey', 'translateFrom', 'translateTo', 'searchEngine', 'translateSite'];
 
-    constructor(public searchKey = 'g', public translateKey = 'e', public jumpToLinkKey = 'b', public searchEngine = 'google', public translateSite = 'cn', public translateFrom = 'en', public translateTo = 'zh-CN') {
+    constructor(public searchKey = 'g', public translateKey = 'e', public jumpToLinkKey = 'b', public searchEngine = 'google', public translateSite = 'com', public translateFrom = 'en', public translateTo = 'zh-CN') {
 
         for (let key of Options.keyMap) {
             this.chromeGet(key);
