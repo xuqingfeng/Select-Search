@@ -8,9 +8,9 @@
 ### Usage
 
 ```
-OS X / Linux:
+MACOS / Windows:
 
-⌘/win + G - search selected text with different search engine( Google, Yahoo, Bing, Sogou ... )
+⌘/win + G - search selected text with different search engine( Google, Bing, Sogou ... )
 
 ⌘/win + E - translate selected text
 

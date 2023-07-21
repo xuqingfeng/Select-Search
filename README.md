@@ -8,11 +8,11 @@
 ### 用法
 
 ```
-OS X / Linux:
+MACOS / Windows:
 
-⌘/win + G - 搜索选中文字 ( Google, Yahoo, Bing, Sogou ... )
+⌘/win + G - 搜索选中文字 ( Google, Bing, Sogou ... )
 
-⌘/win + E - 翻译选中文字
+⌘/win + E - 翻译选中文字 ( Google Translate, Baidu Fanyi )
 
 ⌘/win + B - 跳转选中网址
 ```
