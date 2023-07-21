@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Select Search",
-    "version": "2.1.1",
+    "version": "3.0.0",
     "description": "选中 -> 搜索",
     "icons": {
         "48": "icons/icon48.png",
@@ -17,7 +17,7 @@
     "permissions": [
         "storage"
     ],
-    "host_permissions" : [
+    "host_permissions": [
         "http://*/*",
         "https://*/*"
     ],
