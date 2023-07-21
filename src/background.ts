@@ -9,8 +9,9 @@ class Background {
     static YANDEX: string = 'https://yandex.ru/yandsearch?text=';
 
     static GOOGLE_TRANSLATE_URL: string = 'https://translate.google.com';
+    static BAIDU_TRANSLATE_URL: string = 'https://fanyi.baidu.com';
 
-    constructor(public searchEngine: string = 'google', public translateSite: string = 'com', public translateFrom: string = 'en', public translateTo: string = 'zh-CN') {
+    constructor(public searchEngine: string = 'google', public translateSite: string = 'google', public translateFrom: string = 'en', public translateTo: string = 'zh-CN') {
 
         let self = this;
         chrome.storage.sync.get('translateFrom', function (items) {
@@ -24,22 +25,24 @@ class Background {
 
             let selectedText = request.selectedText;
             switch (request.type) {
-                case 'search':
-
-                    chrome.storage.sync.get('searchEngine', function (items) {
-                        self.searchEngine = items['searchEngine'] || 'google';
-                        self.search(selectedText, self.searchEngine);
-                    });
-                    break;
                 case 'translate':
 
                     chrome.storage.sync.get(['translateSite', 'translateFrom', 'translateTo'], function (items) {
 
-                        self.translateSite = items['translateSite'] || 'com';
+                        self.translateSite = items['translateSite'] || 'google';
                         self.translateFrom = items['translateFrom'] || 'en';
                         self.translateTo = items['translateTo'] || 'zh-CN';
                         let word = encodeURIComponent(selectedText.trim());
-                        let translateUrl = Background.GOOGLE_TRANSLATE_URL + '?sl=auto&tl=' + self.translateTo + '&text=' + word + '&op=translate';
+
+                        let translateUrl = '';
+                        switch (self.translateSite) {
+                            case 'baidu':
+                                if (self.translateFrom === 'zh-CN') self.translateFrom = 'zh';
+                                if (self.translateTo === 'zh-CN') self.translateTo = 'zh';
+                                translateUrl = Background.BAIDU_TRANSLATE_URL + '#' + self.translateFrom + '/' + self.translateTo + '/' + word;
+                            default:
+                                translateUrl = Background.GOOGLE_TRANSLATE_URL + '?sl=auto&tl=' + self.translateTo + '&text=' + word + '&op=translate';
+                        }
                         self.createTab(translateUrl);
                     });
                     break;
@@ -54,7 +57,12 @@ class Background {
                     }
                     break;
                 default:
-                //
+
+                    chrome.storage.sync.get('searchEngine', function (items) {
+                        self.searchEngine = items['searchEngine'] || 'google';
+                        self.search(selectedText, self.searchEngine);
+                    });
+                    break;
             }
         });
     }
@@ -63,10 +71,6 @@ class Background {
 
         let searchUrl = '';
         switch (searchEngine) {
-            case 'google':
-
-                searchUrl += Background.GOOGLE + encodeURIComponent(selectedText);
-                break;
             case 'yahoo':
 
                 searchUrl += Background.YAHOO + encodeURIComponent(selectedText);
@@ -92,6 +96,8 @@ class Background {
                 searchUrl += Background.YANDEX + encodeURIComponent(selectedText);
                 break;
             default:
+                searchUrl += Background.GOOGLE + encodeURIComponent(selectedText);
+                break;
         }
 
         this.createTab(searchUrl);
