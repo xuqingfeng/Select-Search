@@ -10,7 +10,7 @@ class Background {
 
     static GOOGLE_TRANSLATE_URL: string = 'https://translate.google.com';
 
-    constructor(public searchEngine: string = 'google', public translateSite: string = 'cn', public translateFrom: string = 'en', public translateTo: string = 'zh-CN') {
+    constructor(public searchEngine: string = 'google', public translateSite: string = 'com', public translateFrom: string = 'en', public translateTo: string = 'zh-CN') {
 
         let self = this;
         chrome.storage.sync.get('translateFrom', function (items) {
@@ -35,7 +35,7 @@ class Background {
 
                     chrome.storage.sync.get(['translateSite', 'translateFrom', 'translateTo'], function (items) {
 
-                        self.translateSite = items['translateSite'] || 'cn';
+                        self.translateSite = items['translateSite'] || 'com';
                         self.translateFrom = items['translateFrom'] || 'en';
                         self.translateTo = items['translateTo'] || 'zh-CN';
                         let word = encodeURIComponent(selectedText.trim());
