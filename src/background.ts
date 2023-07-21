@@ -11,7 +11,7 @@ class Background {
     static GOOGLE_TRANSLATE_URL: string = 'https://translate.google.com';
     static BAIDU_TRANSLATE_URL: string = 'https://fanyi.baidu.com';
 
-    constructor(public searchEngine: string = 'google', public translateSite: string = 'google', public translateFrom: string = 'en', public translateTo: string = 'zh-CN') {
+    constructor(public searchEngine: string = 'google', public translateSite: string = 'googleTrans', public translateFrom: string = 'en', public translateTo: string = 'zh-CN') {
 
         let self = this;
         chrome.storage.sync.get('translateFrom', function (items) {
@@ -29,14 +29,14 @@ class Background {
 
                     chrome.storage.sync.get(['translateSite', 'translateFrom', 'translateTo'], function (items) {
 
-                        self.translateSite = items['translateSite'] || 'google';
+                        self.translateSite = items['translateSite'] || 'googleTrans';
                         self.translateFrom = items['translateFrom'] || 'en';
                         self.translateTo = items['translateTo'] || 'zh-CN';
                         let word = encodeURIComponent(selectedText.trim());
 
                         let translateUrl = '';
                         switch (self.translateSite) {
-                            case 'baidu':
+                            case 'baiduTrans':
                                 if (self.translateFrom === 'zh-CN') self.translateFrom = 'zh';
                                 if (self.translateTo === 'zh-CN') self.translateTo = 'zh';
                                 translateUrl = Background.BAIDU_TRANSLATE_URL + '#' + self.translateFrom + '/' + self.translateTo + '/' + word;
