@@ -2,7 +2,7 @@ class Options {
 
     static keyMap = ['searchKey', 'translateKey', 'jumpToLinkKey', 'translateFrom', 'translateTo', 'searchEngine', 'translateSite'];
 
-    constructor(public searchKey = 'g', public translateKey = 'e', public jumpToLinkKey = 'b', public searchEngine = 'google', public translateSite = 'google', public translateFrom = 'en', public translateTo = 'zh-CN') {
+    constructor(public searchKey = 'g', public translateKey = 'e', public jumpToLinkKey = 'b', public searchEngine = 'google', public translateSite = 'googleTrans', public translateFrom = 'en', public translateTo = 'zh-CN') {
 
         for (let key of Options.keyMap) {
             this.chromeGet(key);
@@ -48,7 +48,7 @@ class Options {
                     break;
                 case 'translateSite':
 
-                    keyValue = items[key] || 'google';
+                    keyValue = items[key] || 'googleTrans';
                     self.checkboxCheck(keyValue);
                     break;
                 default:
