@@ -8,7 +8,7 @@
 ### Usage
 
 ```
-MACOS / Windows:
+macOS / Windows:
 
 ⌘/win + G - search selected text with different search engine( Google, Bing, Sogou ... )
 

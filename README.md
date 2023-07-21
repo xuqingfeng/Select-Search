@@ -8,7 +8,7 @@
 ### 用法
 
 ```
-MACOS / Windows:
+macOS / Windows:
 
 ⌘/win + G - 搜索选中文字 ( Google, Bing, Sogou ... )
 
