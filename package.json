@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf ./dist &&  mkdir dist && webpack --config webpack/webpack.config.js",
+    "release": "npm run build && cd dist && zip -r ext.zip .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
