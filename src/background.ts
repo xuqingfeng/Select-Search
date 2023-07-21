@@ -1,11 +1,11 @@
 class Background {
 
     static GOOGLE: string = 'https://www.google.com/search?q=';
-    static YAHOO: string = 'https://search.yahoo.com/search?p=';
     static BING: string = 'https://www.bing.com/search?q=';
     static DUCKDUCKGO: string = 'https://www.duckduckgo.com/?q=';
     static SOGOU: string = 'https://www.sogou.com/web?query=';
     static BAIDU: string = 'https://www.baidu.com/s?wd=';
+    static YAHOO: string = 'https://search.yahoo.com/search?p=';
     static YANDEX: string = 'https://yandex.ru/yandsearch?text=';
 
     static GOOGLE_TRANSLATE_URL: string = 'https://translate.google.com';
@@ -71,10 +71,6 @@ class Background {
 
         let searchUrl = '';
         switch (searchEngine) {
-            case 'yahoo':
-
-                searchUrl += Background.YAHOO + encodeURIComponent(selectedText);
-                break;
             case 'bing':
 
                 searchUrl += Background.BING + encodeURIComponent(selectedText);
@@ -90,6 +86,10 @@ class Background {
             case 'baidu':
 
                 searchUrl += Background.BAIDU + encodeURIComponent(selectedText);
+                break;
+            case 'yahoo':
+
+                searchUrl += Background.YAHOO + encodeURIComponent(selectedText);
                 break;
             case 'yandex':
 
