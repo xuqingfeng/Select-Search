@@ -86,9 +86,9 @@ saveButton.addEventListener('click', function () {
     let translateKey = ele.value;
     ele = document.getElementById('jumpToLinkKey') as HTMLInputElement;
     let jumpToLinkKey = ele.value;
-    ele = document.getElementById('input[name=searchEngine]:checked') as HTMLInputElement;
+    ele = document.querySelector('input[name=searchEngine]:checked') as HTMLInputElement;
     let searchEngine = ele.value;
-    ele = document.getElementById('input[name=translate-site]:checked') as HTMLInputElement;
+    ele = document.querySelector('input[name=translate-site]:checked') as HTMLInputElement;
     let translateSite = ele.value;
     ele = document.getElementById('translateFrom') as HTMLInputElement;
     let translateFrom = ele.value;
