@@ -11,9 +11,9 @@
         "default_icon": "icons/icon48.png"
     },
     "background": {
-        "service_worker": "dist/background.js"
+        "service_worker": "background.js"
     },
-    "options_page": "pages/options.html",
+    "options_page": "options.html",
     "permissions": [
         "storage"
     ],
@@ -28,7 +28,7 @@
                 "https://*/*"
             ],
             "js": [
-                "dist/contentScript.js"
+                "contentScript.js"
             ],
             "run_at": "document_start",
             "all_frames": true
