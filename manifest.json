@@ -12,7 +12,7 @@
     },
     "background": {
         "scripts": [
-            "dist/bg.js"
+            "dist/background.js"
         ]
     },
     "options_page": "pages/options.html",
@@ -28,7 +28,7 @@
                 "https://*/*"
             ],
             "js": [
-                "dist/cs.js"
+                "dist/contentScript.js"
             ],
             "run_at": "document_start",
             "all_frames": true

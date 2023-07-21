@@ -1,5 +1,3 @@
-/// <reference path="../typings/chrome/chrome.d.ts" />
-
 class Options {
 
     static keyMap = ['searchKey', 'translateKey', 'jumpToLinkKey', 'translateFrom', 'translateTo', 'searchEngine', 'translateSite'];
@@ -11,12 +9,12 @@ class Options {
         }
     }
 
-    chromeGet = (key:string) => {
+    chromeGet = (key: string) => {
 
         let self = this;
         chrome.storage.sync.get(key, function (items) {
 
-            let keyValue:string;
+            let keyValue: string;
             switch (key) {
                 case 'searchKey':
 
@@ -59,19 +57,22 @@ class Options {
         });
     };
 
-    optionSelect(key:string, value:string) {
+    optionSelect(key: string, value: string) {
 
-        let options = document.getElementById(key).options;
+        let ele = document.getElementById(key) as HTMLSelectElement;
+        let options = ele.options;
         for (let i = 0; i < options.length; i++) {
             if (value == options[i].value) {
-                options[i].selected = 'selected';
+                options[i].selected = true;
             }
         }
+
     }
 
-    checkboxCheck(value:string) {
+    checkboxCheck(value: string) {
 
-        document.getElementById(value).checked = true;
+        let ele = document.getElementById(value) as HTMLInputElement;
+        ele.checked = true;
     }
 }
 
@@ -79,13 +80,20 @@ let options = new Options();
 
 let saveButton = document.getElementById('save');
 saveButton.addEventListener('click', function () {
-    let searchKey = document.getElementById('searchKey').value;
-    let translateKey = document.getElementById('translateKey').value;
-    let jumpToLinkKey = document.getElementById('jumpToLinkKey').value;
-    let searchEngine = document.querySelector('input[name=searchEngine]:checked').value;
-    let translateSite = document.querySelector('input[name=translate-site]:checked').value;
-    let translateFrom = document.getElementById('translateFrom').value;
-    let translateTo = document.getElementById('translateTo').value;
+    let ele = document.getElementById('searchKey') as HTMLInputElement;
+    let searchKey = ele.value;
+    ele = document.getElementById('translateKey') as HTMLInputElement;
+    let translateKey = ele.value;
+    ele = document.getElementById('jumpToLinkKey') as HTMLInputElement;
+    let jumpToLinkKey = ele.value;
+    ele = document.getElementById('input[name=searchEngine]:checked') as HTMLInputElement;
+    let searchEngine = ele.value;
+    ele = document.getElementById('input[name=translate-site]:checked') as HTMLInputElement;
+    let translateSite = ele.value;
+    ele = document.getElementById('translateFrom') as HTMLInputElement;
+    let translateFrom = ele.value;
+    ele = document.getElementById('translateTo') as HTMLInputElement;
+    let translateTo = ele.value;
 
     // change SAVE button class
     saveButton.classList.remove('primary');

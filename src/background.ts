@@ -1,5 +1,3 @@
-/// <reference path="../typings/chrome/chrome.d.ts" />
-
 class Background {
 
     static GOOGLE: string = 'https://www.google.com/search?q=';
@@ -16,10 +14,10 @@ class Background {
 
         let self = this;
         chrome.storage.sync.get('translateFrom', function (items) {
-            this.translateFrom = items['translateFrom'] || 'en';
+            self.translateFrom = items['translateFrom'] || 'en';
         });
         chrome.storage.sync.get('translateTo', function (items) {
-            this.translateTo = items['translateTo'] || 'zh-CN';
+            self.translateTo = items['translateTo'] || 'zh-CN';
         });
 
         chrome.runtime.onMessage.addListener(function (request) {

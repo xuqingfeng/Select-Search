@@ -1,5 +1,3 @@
-/// <reference path="../typings/chrome/chrome.d.ts" />
-
 class Content {
 
     static keyMap = {
@@ -33,22 +31,22 @@ class Content {
 
     constructor(public selectStatus:boolean = false, public selectedText:string = '', public searchKey:string = 'g', public translateKey:string = 'e', public jumpToLinkKey:string = 'b') {
 
+        let self = this;
         chrome.storage.sync.get('searchKey', function (items) {
-            this.searchKey = items['searchKey'] || 'g';
+            self.searchKey = items['searchKey'] || 'g';
         });
         chrome.storage.sync.get('translateKey', function (items) {
-            this.translateKey = items['translateKey'] || 'e';
+            self.translateKey = items['translateKey'] || 'e';
         });
         chrome.storage.sync.get('jumpToLinkKey', function (items) {
-            this.jumpToLinkKey = items['jumpToLinkKey'] || 'b';
+            self.jumpToLinkKey = items['jumpToLinkKey'] || 'b';
         });
     }
 
     // fix
     mouseUp = () => {
-
         let selection = window.getSelection();
-        let selectedText = selection.toString();
+        let selectedText = selection ? selection.toString(): "";
         if (selectedText.length > 0 && selectedText.trim().length > 0) {
             this.selectedText = selectedText.trim();
             this.selectStatus = true;
