@@ -39,7 +39,8 @@ class Background {
                             case 'baiduTrans':
                                 if (self.translateFrom === 'zh-CN') self.translateFrom = 'zh';
                                 if (self.translateTo === 'zh-CN') self.translateTo = 'zh';
-                                translateUrl = Background.BAIDU_TRANSLATE_URL + '#' + self.translateFrom + '/' + self.translateTo + '/' + word;
+                                translateUrl = Background.BAIDU_TRANSLATE_URL + '/#' + self.translateFrom + '/' + self.translateTo + '/' + word;
+                                break;
                             default:
                                 translateUrl = Background.GOOGLE_TRANSLATE_URL + '?sl=auto&tl=' + self.translateTo + '&text=' + word + '&op=translate';
                         }
