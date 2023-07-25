@@ -16,3 +16,7 @@ macOS / Windows:
 
 ⌘/win + B - jump to selected link
 ```
+
+**Note**
+
+Shortcuts are customizable in extension's `Options` page
