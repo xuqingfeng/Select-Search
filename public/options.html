@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Select Search 选项页"/>
+    <meta name="description" content="Select Search Options"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Select Search - Options</title>
@@ -11,18 +11,18 @@
 </head>
 <body>
 <br>
-<h1 class="ui center aligned header">选项</h1>
+<h1 class="ui center aligned header">Options</h1>
 <div class="ui grid">
     <div class="two wide column"></div>
     <div class="twelve wide column">
         <form class="ui form">
-            <h4 class="ui dividing header">快捷键:</h4>
+            <h4 class="ui dividing header">Shortcuts:</h4>
             <div class="field">
                 <div class="fields">
                     <div class="one wide field"></div>
                     <div class="five wide field">
-                        <label>搜索
-                            <small>[ ⌘/win + * ]</small>
+                        <label>search
+                            <small>[ ⌘/win + ? ]</small>
                         </label>
                         <select class="ui fluid dropdown" id="searchKey">
                             <option value="a">A</option>
@@ -54,8 +54,8 @@
                         </select>
                     </div>
                     <div class="five wide field">
-                        <label>翻译
-                            <small>[ ⌘/win + * ]</small>
+                        <label>translate
+                            <small>[ ⌘/win + ? ]</small>
                         </label>
                         <select class="ui fluid dropdown" id="translateKey">
                             <option value="a">A</option>
@@ -87,8 +87,8 @@
                         </select>
                     </div>
                     <div class="five wide field">
-                        <label>跳转
-                            <small>[ ⌘/win + * ]</small>
+                        <label>go to link
+                            <small>[ ⌘/win + ? ]</small>
                         </label>
                         <select class="ui fluid dropdown" id="jumpToLinkKey">
                             <option value="a">A</option>
@@ -122,7 +122,7 @@
                 </div>
             </div>
             <div class="field">
-                <h4 class="ui dividing header">搜索:</h4>
+                <h4 class="ui dividing header">Search Engine:</h4>
                 <div class="fields">
                     <div class="one wide field"></div>
                     <div class="fifteen wide field">
@@ -159,7 +159,7 @@
                 </div>
             </div>
             <div class="field">
-                <h4 class="ui dividing header">翻译:</h4>
+                <h4 class="ui dividing header">Translate Engine:</h4>
                 <div class="fields">
                     <div class="one wide field"></div>
                     <div class="eight wide field">
@@ -176,7 +176,7 @@
                 <div class="fields">
                     <div class="one wide field"></div>
                     <div class="eight wide field">
-                        <label>从:</label>
+                        <label>from:</label>
                         <select class="ui fluid dropdown" id="translateFrom">
                             <option value="en">En</option>
                             <option value="zh-CN">中文</option>
@@ -184,7 +184,7 @@
                         </select>
                     </div>
                     <div class="eight wide field">
-                        <label>至:</label>
+                        <label>to:</label>
                         <select class="ui fluid dropdown" id="translateTo">
                             <option value="en">En</option>
                             <option value="zh-CN">中文</option>
@@ -198,12 +198,12 @@
                     <div class="one wide field"></div>
                     <div class="four wide field">
                         <div class="ui hidden compact small message" id="messageArea">
-                            <p>保存成功!</p>
+                            <p>changes saved !</p>
                         </div>
                     </div>
                     <div class="eleven wide field">
                         <div class="ui primary right floated medium button" id="save">
-                            <i class="save icon"></i> 保存
+                            <i class="save icon"></i> Save
                         </div>
                     </div>
                 </div>
