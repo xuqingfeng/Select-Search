@@ -1,6 +1,6 @@
 {
   "name": "select-search",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "select text to search on various search engines.",
   "main": "index.js",
   "scripts": {
