@@ -1,22 +1,20 @@
 ## Select Search
-> :mag: 选中 -> 搜索
+> :mag: Select -> Search / Translate / Go to link
 
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/hlnpaciomjjnpmbjedfmlnkhogngmleh.svg?style=flat-square)](https://chrome.google.com/webstore/detail/select-search/hlnpaciomjjnpmbjedfmlnkhogngmleh)
 
-中文 | [English](./README-en.md)
+English | [中文](./README.cn.md)
 
-### 用法
+### Usage
 
 ```
-macOS / Windows:
+In macOS / Windows:
 
-⌘/win + G - 搜索选中文字 ( Google, Bing, Sogou ... )
+⌘/win + G - search selected text with different search engine( Google, Bing, Sogou ... )
 
-⌘/win + E - 翻译选中文字 ( Google Translate, Baidu Fanyi )
+⌘/win + E - translate selected text
 
-⌘/win + B - 跳转选中网址
+⌘/win + B - jump to selected link
 ```
 
-**注意**
-
-快捷键可在扩展 `选项` 中自定义
+Note: shortcuts are customizable in extension's `Options` page
