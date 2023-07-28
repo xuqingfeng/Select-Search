@@ -58,6 +58,7 @@ class Content {
     // fixed
     keyDown = (e) => {
         if (this.selectStatus) {
+            console.info('meta key pressed')
             if (e.metaKey) {
                 switch (e.keyCode) {
                     case Content.keyMap[this.searchKey]:
