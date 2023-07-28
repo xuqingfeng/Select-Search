@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Select Search",
-    "version": "3.0.2",
+    "version": "3.0.3",
     "description": "Select -> Search / Translate / Go to link",
     "icons": {
         "48": "icons/icon48.png",
