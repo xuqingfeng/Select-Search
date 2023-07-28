@@ -29,7 +29,7 @@ class Content {
         z: 90
     };
 
-    constructor(public selectStatus:boolean = false, public selectedText:string = '', public searchKey:string = 'g', public translateKey:string = 'e', public jumpToLinkKey:string = 'b') {
+    constructor(public selectStatus: boolean = false, public selectedText: string = '', public searchKey: string = 'g', public translateKey: string = 'e', public jumpToLinkKey: string = 'b') {
 
         let self = this;
         chrome.storage.sync.get('searchKey', function (items) {
@@ -46,7 +46,7 @@ class Content {
     // fix
     mouseUp = () => {
         let selection = window.getSelection();
-        let selectedText = selection ? selection.toString(): "";
+        let selectedText = selection ? selection.toString() : "";
         if (selectedText.length > 0 && selectedText.trim().length > 0) {
             this.selectedText = selectedText.trim();
             this.selectStatus = true;
@@ -55,36 +55,29 @@ class Content {
         }
     }
 
-    // fixed
     keyDown = (e) => {
         if (this.selectStatus) {
-            console.info('meta key pressed')
-            if (e.metaKey) {
-                switch (e.keyCode) {
-                    case Content.keyMap[this.searchKey]:
-                        e.preventDefault();
-                        chrome.runtime.sendMessage({
-                            selectedText: this.selectedText,
-                            type: 'search'
-                        });
-                        break;
-                    case Content.keyMap[this.translateKey]:
-                        e.preventDefault();
-                        chrome.runtime.sendMessage({
-                            selectedText: this.selectedText,
-                            type: 'translate'
-                        });
-                        break;
-                    case Content.keyMap[this.jumpToLinkKey]:
-                        e.preventDefault();
-                        chrome.runtime.sendMessage({
-                            selectedText: this.selectedText,
-                            type: 'link'
-                        });
-                        break;
-                    default:
-                        //
-                }
+
+            if (e.metaKey && e.keyCode == Content.keyMap[this.searchKey]) {
+                e.preventDefault();
+                chrome.runtime.sendMessage({
+                    selectedText: this.selectedText,
+                    type: 'search'
+                });
+            }
+            if (e.metaKey && e.keyCode == Content.keyMap[this.translateKey]) {
+                e.preventDefault();
+                chrome.runtime.sendMessage({
+                    selectedText: this.selectedText,
+                    type: 'translate'
+                });
+            }
+            if (e.metaKey && e.keyCode == Content.keyMap[this.jumpToLinkKey]) {
+                e.preventDefault();
+                chrome.runtime.sendMessage({
+                    selectedText: this.selectedText,
+                    type: 'link'
+                });
             }
         }
     }
