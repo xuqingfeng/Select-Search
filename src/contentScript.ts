@@ -43,7 +43,6 @@ class Content {
         });
     }
 
-    // fix
     mouseUp = () => {
         let selection = window.getSelection();
         let selectedText = selection ? selection.toString() : "";
