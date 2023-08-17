@@ -10,11 +10,11 @@
 ```
 In macOS / Windows:
 
-⌘/[ctrl+win] + G - 搜索选中文字 ( Google, Bing, Sogou ... )
+⌘/<Ctrl-Win> + G - 搜索选中文字 ( Google, Bing, Sogou ... )
 
-⌘/[ctrl+win] + E - 翻译选中文字 ( Google Translate, Baidu Fanyi )
+⌘/<Ctrl-Win> + E - 翻译选中文字 ( Google Translate, Baidu Fanyi )
 
-⌘/[ctrl+win] + B - 跳转选中网址
+⌘/<Ctrl-Win> + B - 跳转选中网址
 ```
 
 注意: 快捷键可在扩展 `选项` 中自定义

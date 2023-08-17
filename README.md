@@ -10,11 +10,11 @@ English | [中文](./README.cn.md)
 ```
 In macOS / Windows:
 
-⌘/[ctrl+win] + G - search selected text with different search engine( Google, Bing, Sogou ... )
+⌘/<Ctrl-Win> + G - search selected text with different search engine( Google, Bing, Sogou ... )
 
-⌘/[ctrl+win] + E - translate selected text
+⌘/<Ctrl-Win> + E - translate selected text
 
-⌘/[ctrl+win] + B - jump to selected link
+⌘/<Ctrl-Win> + B - jump to selected link
 ```
 
 Note: shortcuts are customizable in extension's `Options` page
