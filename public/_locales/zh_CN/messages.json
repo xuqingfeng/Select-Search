@@ -1,0 +1,35 @@
+{
+  "i18nOptions": {
+    "message": "选项"
+  },
+  "i18nShortcuts": {
+    "message": "快捷键："
+  },
+  "i18nsearch": {
+    "message": "搜索"
+  },
+  "i18ntranslate": {
+    "message": "翻译"
+  },
+  "i18ngo_to_link": {
+    "message": "跳转链接"
+  },
+  "i18nSearchEngine": {
+    "message": "搜索引擎："
+  },
+  "i18nTranslateEngine": {
+    "message": "翻译工具："
+  },
+  "i18nfrom": {
+    "message": "从："
+  },
+  "i18nto": {
+    "message": "到："
+  },
+  "i18nchanges_saved": {
+    "message": "保存成功"
+  },
+  "save": {
+    "message": "保存"
+  }
+}
