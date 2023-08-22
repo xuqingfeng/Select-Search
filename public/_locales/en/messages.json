@@ -1,0 +1,35 @@
+{
+  "i18nOptions": {
+    "message": "Options"
+  },
+  "i18nShortcuts": {
+    "message": "Shortcuts:"
+  },
+  "i18nsearch": {
+    "message": "search"
+  },
+  "i18ntranslate": {
+    "message": "translate"
+  },
+  "i18ngo_to_link": {
+    "message": "go to link"
+  },
+  "i18nSearchEngine": {
+    "message": "Search Engine:"
+  },
+  "i18nTranslateEngine": {
+    "message": "Translate Engine:"
+  },
+  "i18nfrom": {
+    "message": "from:"
+  },
+  "i18nto": {
+    "message": "to:"
+  },
+  "i18nchanges_saved": {
+    "message": "changes saved !"
+  },
+  "save": {
+    "message": "Save"
+  }
+}
