@@ -24,7 +24,7 @@ class Options {
 
     // i18n
     let i18nIDs = [
-      "i18nOptions",
+      "i18nSettings",
       "i18nShortcuts",
       "i18nsearch",
       "i18ntranslate",
