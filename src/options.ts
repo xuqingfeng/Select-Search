@@ -21,6 +21,24 @@ class Options {
     for (let key of Options.keyMap) {
       this.chromeGet(key);
     }
+
+    // i18n
+    let i18nIDs = [
+      "i18nOptions",
+      "i18nShortcuts",
+      "i18nsearch",
+      "i18ntranslate",
+      "i18ngo_to_link",
+      "i18nSearchEngine",
+      "i18nTranslateEngine",
+      "i18nfrom",
+      "i18nto",
+      "i18nchanges_saved",
+      "save",
+    ];
+    for (let i in i18nIDs) {
+      this.setText(i, chrome.i18n.getMessage(i));
+    }
   }
 
   chromeGet = (key: string) => {
@@ -75,6 +93,11 @@ class Options {
   checkboxCheck(value: string) {
     let ele = document.getElementById(value) as HTMLInputElement;
     ele.checked = true;
+  }
+
+  setText(key: string, value: string) {
+    let ele = document.getElementById(key) as HTMLElement;
+    ele.textContent = value;
   }
 }
 

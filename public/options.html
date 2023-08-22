@@ -14,17 +14,17 @@
   </head>
   <body>
     <br />
-    <h1 class="ui center aligned header">Options</h1>
+    <h1 class="ui center aligned header" id="i18nOptions">Options</h1>
     <div class="ui grid">
       <div class="two wide column"></div>
       <div class="twelve wide column">
         <form class="ui form">
-          <h4 class="ui dividing header">Shortcuts:</h4>
+          <h4 class="ui dividing header" id="i18nShortcuts">Shortcuts:</h4>
           <div class="field">
             <div class="fields">
               <div class="one wide field"></div>
               <div class="five wide field">
-                <label
+                <label id="i18nsearch"
                   >search
                   <small>⌘/[ctrl+win] + ?</small>
                 </label>
@@ -58,7 +58,7 @@
                 </select>
               </div>
               <div class="five wide field">
-                <label
+                <label id="i18ntranslate"
                   >translate
                   <small>⌘/[ctrl+win] + ?</small>
                 </label>
@@ -92,7 +92,7 @@
                 </select>
               </div>
               <div class="five wide field">
-                <label
+                <label id="i18ngo_to_link"
                   >go to link
                   <small>⌘/[ctrl+win] + ?</small>
                 </label>
@@ -128,7 +128,7 @@
             </div>
           </div>
           <div class="field">
-            <h4 class="ui dividing header">Search Engine:</h4>
+            <h4 class="ui dividing header" id="i18nSearchEngine">Search Engine:</h4>
             <div class="fields">
               <div class="one wide field"></div>
               <div class="fifteen wide field">
@@ -206,7 +206,7 @@
             </div>
           </div>
           <div class="field">
-            <h4 class="ui dividing header">Translate Engine:</h4>
+            <h4 class="ui dividing header" id="i18nTranslateEngine">Translate Engine:</h4>
             <div class="fields">
               <div class="one wide field"></div>
               <div class="eight wide field">
@@ -235,7 +235,7 @@
             <div class="fields">
               <div class="one wide field"></div>
               <div class="eight wide field">
-                <label>from:</label>
+                <label id="i18nfrom">from:</label>
                 <select class="ui fluid dropdown" id="translateFrom">
                   <option value="en">En</option>
                   <option value="zh-CN">中文</option>
@@ -243,7 +243,7 @@
                 </select>
               </div>
               <div class="eight wide field">
-                <label>to:</label>
+                <label id="i18nto">to:</label>
                 <select class="ui fluid dropdown" id="translateTo">
                   <option value="en">En</option>
                   <option value="zh-CN">中文</option>
@@ -257,7 +257,7 @@
               <div class="one wide field"></div>
               <div class="four wide field">
                 <div class="ui hidden compact small message" id="messageArea">
-                  <p>changes saved !</p>
+                  <p id="i18nchanges_saved">changes saved !</p>
                 </div>
               </div>
               <div class="eleven wide field">
