@@ -1,6 +1,6 @@
 {
   "i18nOptions": {
-    "message": "Options"
+    "message": "Settings"
   },
   "i18nShortcuts": {
     "message": "Shortcuts:"
@@ -27,7 +27,7 @@
     "message": "to:"
   },
   "i18nchanges_saved": {
-    "message": "changes saved !"
+    "message": "changes saved"
   },
   "save": {
     "message": "Save"
