@@ -36,7 +36,7 @@ class Options {
       "i18nchanges_saved",
       "save",
     ];
-    for (let i in i18nIDs) {
+    for (let i of i18nIDs) {
       this.setText(i, chrome.i18n.getMessage(i));
     }
   }
