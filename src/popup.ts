@@ -12,10 +12,10 @@ class Popup {
 
     // i18n
     let i18nIDs = [
-      "i18nShortcuts",
-      "i18nsearch",
-      "i18ntranslate",
-      "i18ngo_to_link",
+      "i18n_shortcuts",
+      "i18n_search",
+      "i18n_translate",
+      "i18n_go_to_link",
       "i18n_go_to_options"
     ];
     for (let i of i18nIDs) {
