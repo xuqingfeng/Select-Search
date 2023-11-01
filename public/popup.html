@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Select Search Popup" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Select Search - Popup</title>
+    <link
+      rel="stylesheet"
+      href="./libs/semantic-ui-css/2.5.0/semantic.min.css"
+    />
+    <link rel="stylesheet" href="./libs/animate.css/4.1.1/animate.min.css" />
+  </head>
+  <body>
+    <div class="ui attached segment">
+      <h4 class="ui header">Shortcuts</h4>
+      <ul>
+        <li>search: ⌘/&lt;Ctrl-Win&gt; + G</li>
+        <li>translate: ⌘/&lt;Ctrl-Win&gt; + E</li>
+        <li>go to link: ⌘/&lt;Ctrl-Win&gt; + B</li>
+      </ul>
+    </div>
+
+    <!-- TODO: update color -->
+    <div
+      class="ui bottom attached yellow button"
+      tabindex="0"
+      id="go-to-options"
+    >
+      Click here to customize shortcuts
+    </div>
+
+    <script
+      type="text/javascript"
+      src="./libs/jquery/3.7.0/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./libs/semantic-ui-css/2.5.0/semantic.min.js"
+    ></script>
+    <script type="text/javascript" src="./popup.js"></script>
+  </body>
+</html>
