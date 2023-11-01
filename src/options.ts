@@ -24,17 +24,17 @@ class Options {
 
     // i18n
     let i18nIDs = [
-      "i18nSettings",
-      "i18nShortcuts",
-      "i18nsearch",
-      "i18ntranslate",
-      "i18ngo_to_link",
-      "i18nSearchEngine",
-      "i18nTranslateEngine",
-      "i18nfrom",
-      "i18nto",
-      "i18nchanges_saved",
-      "save",
+      "i18n_settings",
+      "i18n_shortcuts",
+      "i18n_search",
+      "i18n_translate",
+      "i18n_go_to_link",
+      "i18n_search_engine",
+      "i18n_translate_engine",
+      "i18n_from",
+      "i18n_to",
+      "i18n_changes_saved",
+      "i18n_save",
     ];
     for (let i of i18nIDs) {
       this.setText(i, chrome.i18n.getMessage(i));
@@ -103,7 +103,10 @@ class Options {
 
 let options = new Options();
 
-let saveButton = document.getElementById("save");
+/*
+  plain js
+*/
+let saveButton = document.getElementById("i18n_save");
 saveButton.addEventListener("click", function () {
   let ele = document.getElementById("searchKey") as HTMLInputElement;
   let searchKey = ele.value;

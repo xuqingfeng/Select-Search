@@ -1,35 +1,35 @@
 {
-  "i18nSettings": {
+  "i18n_settings": {
     "message": "Settings"
   },
-  "i18nShortcuts": {
+  "i18n_shortcuts": {
     "message": "Shortcuts:"
   },
-  "i18nsearch": {
+  "i18n_search": {
     "message": "search"
   },
-  "i18ntranslate": {
+  "i18n_translate": {
     "message": "translate"
   },
-  "i18ngo_to_link": {
+  "i18n_go_to_link": {
     "message": "go to link"
   },
-  "i18nSearchEngine": {
+  "i18n_search_engine": {
     "message": "Search Engine:"
   },
-  "i18nTranslateEngine": {
+  "i18n_translate_engine": {
     "message": "Translate Engine:"
   },
-  "i18nfrom": {
+  "i18n_from": {
     "message": "from:"
   },
-  "i18nto": {
+  "i18n_to": {
     "message": "to:"
   },
-  "i18nchanges_saved": {
+  "i18n_changes_saved": {
     "message": "changes saved"
   },
-  "save": {
+  "i18n_save": {
     "message": "Save"
   },
   "i18n_go_to_options":{

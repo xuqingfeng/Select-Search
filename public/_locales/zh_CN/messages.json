@@ -1,35 +1,35 @@
 {
-  "i18nSettings": {
+  "i18n_settings": {
     "message": "配置"
   },
-  "i18nShortcuts": {
+  "i18n_shortcuts": {
     "message": "快捷键："
   },
-  "i18nsearch": {
+  "i18n_search": {
     "message": "搜索"
   },
-  "i18ntranslate": {
+  "i18n_translate": {
     "message": "翻译"
   },
-  "i18ngo_to_link": {
+  "i18n_go_to_link": {
     "message": "跳转链接"
   },
-  "i18nSearchEngine": {
+  "i18n_search_engine": {
     "message": "搜索引擎："
   },
-  "i18nTranslateEngine": {
+  "i18n_translate_engine": {
     "message": "翻译工具："
   },
-  "i18nfrom": {
+  "i18n_from": {
     "message": "从："
   },
-  "i18nto": {
+  "i18n_to": {
     "message": "到："
   },
-  "i18nchanges_saved": {
+  "i18n_changes_saved": {
     "message": "保存成功"
   },
-  "save": {
+  "i18n_save": {
     "message": "保存"
   },
   "i18n_go_to_options":{
