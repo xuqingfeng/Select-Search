@@ -31,5 +31,8 @@
   },
   "save": {
     "message": "保存"
+  },
+  "i18n_go_to_options":{
+    "message": "点击此处自定义快捷键"
   }
 }

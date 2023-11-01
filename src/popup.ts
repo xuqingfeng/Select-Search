@@ -1,17 +1,5 @@
-document.querySelector("#go-to-options").addEventListener("click", function () {
-  if (chrome.runtime.openOptionsPage) {
-    chrome.runtime.openOptionsPage();
-  } else {
-    window.open(chrome.runtime.getURL("options.html"));
-  }
-});
-
 class Popup {
-  static keyMap = [
-    "searchKey",
-    "translateKey",
-    "jumpToLinkKey",
-  ];
+  static keyMap = ["searchKey", "translateKey", "jumpToLinkKey"];
 
   constructor(
     public searchKey = "g",
@@ -20,6 +8,18 @@ class Popup {
   ) {
     for (let key of Popup.keyMap) {
       this.chromeGet(key);
+    }
+
+    // i18n
+    let i18nIDs = [
+      "i18nShortcuts",
+      "i18nsearch",
+      "i18ntranslate",
+      "i18ngo_to_link",
+      "i18n_go_to_options"
+    ];
+    for (let i of i18nIDs) {
+      this.setText(i, chrome.i18n.getMessage(i));
     }
   }
 
@@ -53,3 +53,14 @@ class Popup {
 }
 
 let popup = new Popup();
+
+/*
+  plain js
+*/
+document.querySelector("#i18n_go_to_options").addEventListener("click", function () {
+  if (chrome.runtime.openOptionsPage) {
+    chrome.runtime.openOptionsPage();
+  } else {
+    window.open(chrome.runtime.getURL("options.html"));
+  }
+});
