@@ -31,5 +31,8 @@
   },
   "save": {
     "message": "Save"
+  },
+  "i18n_go_to_options":{
+    "message": "Click here to customize shortcuts"
   }
 }
