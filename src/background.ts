@@ -18,10 +18,10 @@ class Background {
   ) {
     let self = this;
     chrome.storage.sync.get("translateFrom", function (items) {
-      self.translateFrom = items["translateFrom"] || "en";
+      self.translateFrom = (items["translateFrom"] as string) || "en";
     });
     chrome.storage.sync.get("translateTo", function (items) {
-      self.translateTo = items["translateTo"] || "zh-CN";
+      self.translateTo = (items["translateTo"] as string) || "zh-CN";
     });
 
     chrome.runtime.onMessage.addListener(function (request) {
@@ -31,9 +31,9 @@ class Background {
           chrome.storage.sync.get(
             ["translateSite", "translateFrom", "translateTo"],
             function (items) {
-              self.translateSite = items["translateSite"] || "googleTrans";
-              self.translateFrom = items["translateFrom"] || "en";
-              self.translateTo = items["translateTo"] || "zh-CN";
+              self.translateSite = (items["translateSite"] as string) || "googleTrans";
+              self.translateFrom = (items["translateFrom"] as string) || "en";
+              self.translateTo = (items["translateTo"] as string) || "zh-CN";
               let word = encodeURIComponent(selectedText.trim());
 
               let translateUrl = "";
@@ -74,7 +74,7 @@ class Background {
           break;
         default:
           chrome.storage.sync.get("searchEngine", function (items) {
-            self.searchEngine = items["searchEngine"] || "google";
+            self.searchEngine = (items["searchEngine"] as string) || "google";
             self.search(selectedText, self.searchEngine);
           });
           break;

@@ -37,13 +37,13 @@ class Content {
   ) {
     let self = this;
     chrome.storage.sync.get("searchKey", function (items) {
-      self.searchKey = items["searchKey"] || "g";
+      self.searchKey = (items["searchKey"] as string) || "g";
     });
     chrome.storage.sync.get("translateKey", function (items) {
-      self.translateKey = items["translateKey"] || "e";
+      self.translateKey = (items["translateKey"] as string) || "e";
     });
     chrome.storage.sync.get("jumpToLinkKey", function (items) {
-      self.jumpToLinkKey = items["jumpToLinkKey"] || "b";
+      self.jumpToLinkKey = (items["jumpToLinkKey"] as string) || "b";
     });
   }
 

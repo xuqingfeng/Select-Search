@@ -29,15 +29,15 @@ class Popup {
       let keyValue: string;
       switch (key) {
         case "searchKey":
-          keyValue = items[key] || "g";
+          keyValue = (items[key] as string) || "g";
           self.setText(key, keyValue.toUpperCase());
           break;
         case "translateKey":
-          keyValue = items[key] || "e";
+          keyValue = (items[key] as string) || "e";
           self.setText(key, keyValue.toUpperCase());
           break;
         case "jumpToLinkKey":
-          keyValue = items[key] || "b";
+          keyValue = (items[key] as string) || "b";
           self.setText(key, keyValue.toUpperCase());
           break;
         default:

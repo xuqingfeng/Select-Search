@@ -1,6 +1,6 @@
 {
   "name": "select-search",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "select text to search on various search engines.",
   "main": "index.js",
   "scripts": {
@@ -20,11 +20,11 @@
   "homepage": "https://github.com/xuqingfeng/Select-Search#readme",
   "dependencies": {},
   "devDependencies": {
-    "@types/chrome": "0.0.241",
-    "copy-webpack-plugin": "^11.0.0",
-    "ts-loader": "^9.4.4",
-    "typescript": "^5.1.6",
-    "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4"
+    "@types/chrome": "^0.1.36",
+    "copy-webpack-plugin": "^12.0.0",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.7.3",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^6.0.1"
   }
 }

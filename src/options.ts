@@ -47,31 +47,31 @@ class Options {
       let keyValue: string;
       switch (key) {
         case "searchKey":
-          keyValue = items[key] || "g";
+          keyValue = (items[key] as string) || "g";
           self.optionSelect(key, keyValue);
           break;
         case "translateKey":
-          keyValue = items[key] || "e";
+          keyValue = (items[key] as string) || "e";
           self.optionSelect(key, keyValue);
           break;
         case "jumpToLinkKey":
-          keyValue = items[key] || "b";
+          keyValue = (items[key] as string) || "b";
           self.optionSelect(key, keyValue);
           break;
         case "translateFrom":
-          keyValue = items[key] || "en";
+          keyValue = (items[key] as string) || "en";
           self.optionSelect(key, keyValue);
           break;
         case "translateTo":
-          keyValue = items[key] || "zh-CN";
+          keyValue = (items[key] as string) || "zh-CN";
           self.optionSelect(key, keyValue);
           break;
         case "searchEngine":
-          keyValue = items[key] || "google";
+          keyValue = (items[key] as string) || "google";
           self.checkboxCheck(keyValue);
           break;
         case "translateSite":
-          keyValue = items[key] || "googleTrans";
+          keyValue = (items[key] as string) || "googleTrans";
           self.checkboxCheck(keyValue);
           break;
         default:
