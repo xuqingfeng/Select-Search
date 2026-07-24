@@ -35,17 +35,31 @@ class Content {
     public translateKey: string = "e",
     public jumpToLinkKey: string = "b"
   ) {
-    let self = this;
-    chrome.storage.sync.get("searchKey", function (items) {
-      self.searchKey = (items["searchKey"] as string) || "g";
-    });
-    chrome.storage.sync.get("translateKey", function (items) {
-      self.translateKey = (items["translateKey"] as string) || "e";
-    });
-    chrome.storage.sync.get("jumpToLinkKey", function (items) {
-      self.jumpToLinkKey = (items["jumpToLinkKey"] as string) || "b";
+    this.loadKeys();
+    chrome.storage.onChanged.addListener((changes, areaName) => {
+      if (areaName !== "sync") return;
+      if (changes.searchKey) {
+        this.searchKey = (changes.searchKey.newValue as string) || "g";
+      }
+      if (changes.translateKey) {
+        this.translateKey = (changes.translateKey.newValue as string) || "e";
+      }
+      if (changes.jumpToLinkKey) {
+        this.jumpToLinkKey = (changes.jumpToLinkKey.newValue as string) || "b";
+      }
     });
   }
+
+  loadKeys = () => {
+    chrome.storage.sync.get(
+      ["searchKey", "translateKey", "jumpToLinkKey"],
+      (items) => {
+        this.searchKey = (items["searchKey"] as string) || "g";
+        this.translateKey = (items["translateKey"] as string) || "e";
+        this.jumpToLinkKey = (items["jumpToLinkKey"] as string) || "b";
+      }
+    );
+  };
 
   mouseUp = () => {
     let selection = window.getSelection();
