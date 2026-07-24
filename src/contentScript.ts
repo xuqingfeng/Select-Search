@@ -60,21 +60,21 @@ class Content {
 
   keyDown = (e) => {
     if (this.selectStatus) {
-      if (e.metaKey && e.keyCode == Content.keyMap[this.searchKey]) {
+      if ((e.metaKey || e.ctrlKey) && e.key == Content.keyMap[this.searchKey]) {
         e.preventDefault();
         chrome.runtime.sendMessage({
           selectedText: this.selectedText,
           type: "search",
         });
       }
-      if (e.metaKey && e.keyCode == Content.keyMap[this.translateKey]) {
+      if ((e.metaKey || e.ctrlKey) && e.key == Content.keyMap[this.translateKey]) {
         e.preventDefault();
         chrome.runtime.sendMessage({
           selectedText: this.selectedText,
           type: "translate",
         });
       }
-      if (e.metaKey && e.keyCode == Content.keyMap[this.jumpToLinkKey]) {
+      if ((e.metaKey || e.ctrlKey) && e.key == Content.keyMap[this.jumpToLinkKey]) {
         e.preventDefault();
         chrome.runtime.sendMessage({
           selectedText: this.selectedText,
