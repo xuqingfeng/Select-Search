@@ -8,8 +8,6 @@
 ### 用法
 
 ```
-支持 macOS / Windows:
-
 ⌘/Ctrl + G - 搜索选中文字 (Google, Bing, Sogou, ...)
 
 ⌘/Ctrl + E - 翻译选中文字 (Google Translate, Baidu Fanyi)

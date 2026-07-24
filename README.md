@@ -8,8 +8,6 @@ English | [中文](./README.cn.md)
 ### Usage
 
 ```
-In macOS / Windows:
-
 ⌘/Ctrl + G - search selected text (Google, Bing, Sogou, ...)
 
 ⌘/Ctrl + E - translate selected text
