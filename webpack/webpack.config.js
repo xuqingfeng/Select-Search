@@ -26,7 +26,21 @@ module.exports = {
   },
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: ".", to: ".", context: "public" }],
+      patterns: [
+        {
+          from: ".",
+          to: ".",
+          context: "public",
+          globOptions: {
+            ignore: [
+              "**/screenshots/**",
+              "**/libs/jquery/**",
+              "**/libs/semantic-ui-css/**/components/**",
+              "**/libs/semantic-ui-css/**/semantic.min.js",
+            ],
+          },
+        },
+      ],
     }),
   ],
 };

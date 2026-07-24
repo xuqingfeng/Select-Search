@@ -19,10 +19,6 @@
     "permissions": [
         "storage"
     ],
-    "host_permissions": [
-        "http://*/*",
-        "https://*/*"
-    ],
     "content_scripts": [
         {
             "matches": [
