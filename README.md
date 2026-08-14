@@ -1,5 +1,5 @@
 ## Select Search
-> :mag: Select -> Search / Translate / Go to link
+> :mag: Select -> (Search / Translate / Go to link) with keyboard shortcuts
 
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/hlnpaciomjjnpmbjedfmlnkhogngmleh.svg?style=flat-square)](https://chrome.google.com/webstore/detail/select-search/hlnpaciomjjnpmbjedfmlnkhogngmleh)
 
