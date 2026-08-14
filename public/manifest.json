@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Select Search",
     "version": "3.3.0",
-    "description": "Select -> Search / Translate / Go to link",
+    "description": "Select -> (Search / Translate / Go to link) with keyboard shortcuts",
     "icons": {
         "48": "icons/icon48.png",
         "128": "icons/icon128.png"
